@@ -11,13 +11,16 @@ import {
   MDBCollapse
 } from 'mdb-react-ui-kit';
 
+// Styles
+import './Navbar.css';
+
 export const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+        <MDBNavbarBrand href='#'>Udoctor</MDBNavbarBrand>
         <MDBNavbarToggler
           type='button'
           aria-expanded='false'
@@ -38,11 +41,6 @@ export const Navbar = () => {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                Disabled
-              </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
         </MDBCollapse>
