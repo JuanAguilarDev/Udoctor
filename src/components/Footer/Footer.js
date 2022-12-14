@@ -116,8 +116,8 @@ export const Footer = ()  => {
 
       <div className='text-center p-4 d-flex justify-content-evenly' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         <span> © 2022 BEDU, EQUIPO 10 </span> 
-        <a className='text-reset fw-bold' href='https://github.com/JuanAguilarDev/MarvelFandom.git'>
-          MarvelFandom.git
+        <a className='text-reset fw-bold' href='https://github.com/JuanAguilarDev/Udoctor.git'>
+          Udoctor.git
         </a>
       </div>
     </MDBFooter>
