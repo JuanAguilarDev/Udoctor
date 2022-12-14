@@ -12,32 +12,41 @@ import {
 } from 'mdb-react-ui-kit';
 
 export const Navbar = () => {
-    const [showNavSecond, setShowNavSecond] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
-    return (
-      <MDBNavbar expand='lg' light bgColor='light'>
-        <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
-          <MDBNavbarToggler
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-            onClick={() => setShowNavSecond(!showNavSecond)}
-          >
-            <MDBIcon icon='bars' fas />
-          </MDBNavbarToggler>
-          <MDBCollapse navbar show={showNavSecond}>
-            <MDBNavbarNav>
+  return (
+    <MDBNavbar expand='lg' light bgColor='light'>
+      <MDBContainer fluid>
+        <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+        <MDBNavbarToggler
+          type='button'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+          onClick={() => setShowNav(!showNav)}
+        >
+          <MDBIcon icon='bars' fas />
+        </MDBNavbarToggler>
+        <MDBCollapse navbar show={showNav}>
+          <MDBNavbarNav>
+            <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='#'>
                 Home
               </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
               <MDBNavbarLink href='#'>Features</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
               <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
               <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
                 Disabled
               </MDBNavbarLink>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBContainer>
-      </MDBNavbar>
-    );
+            </MDBNavbarItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
+  );
 }
