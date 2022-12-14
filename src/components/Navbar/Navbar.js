@@ -10,13 +10,13 @@ function NavigationBar() {
     return (
         <Navbar bg="dark" variant={"dark"} expand="lg">
             <Container fluid>
-                <Navbar.Brand href="/">
+                <Navbar.Brand as={Link} to={"/"}>
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/2560px-Marvel_Logo.svg.png"
-                        width="90"
-                        height="30"
+                        src="https://cdn.iconscout.com/icon/free/png-256/medical-29-112173.png"
+                        width="45"
+                        height="45"
                         className="navbar--image d-inline-block align-top"
-                        alt="Marvel Fandom logo"
+                        alt="UrDoctor logo"
                     />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -27,7 +27,7 @@ function NavigationBar() {
                         navbarScroll
                     >
                         <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
-                        <Nav.Link as={Link} to={"/test"}>Test</Nav.Link>
+                        <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
                         <NavDropdown title="Link" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">
@@ -43,7 +43,7 @@ function NavigationBar() {
                         </Nav.Link>
                     </Nav>
                     <Form className="d-flex">
-                        <Form.Control   
+                        <Form.Control
                             type="search"
                             placeholder="Search"
                             className="me-2"
