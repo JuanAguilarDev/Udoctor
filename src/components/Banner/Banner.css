@@ -1,0 +1,16 @@
+
+ .banner--container{
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+
+.banner--text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner__text{
+    text-align: justify;
+}
