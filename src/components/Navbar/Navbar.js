@@ -33,7 +33,7 @@ export const Navbar = () => {
                 <MDBCollapse navbar show={showNav}>
                     <MDBNavbarNav>
                         <MDBNavbarItem>
-                            <MDBNavbarLink aria-current='page' tag={Link} to={'/'}>
+                            <MDBNavbarLink aria-current='page' tag={Link} to={'/home'}>
                                 Home
                             </MDBNavbarLink>
                         </MDBNavbarItem>
@@ -41,7 +41,7 @@ export const Navbar = () => {
                             <MDBNavbarLink tag={Link} to={'/about'}>About</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
-                            <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
+                            <MDBNavbarLink tag={Link} to={'/test'}>Test</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
                             <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
