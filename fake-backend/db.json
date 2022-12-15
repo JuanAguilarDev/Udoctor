@@ -1,0 +1,95 @@
+{
+    "illnesses": [
+        {
+            "name": "Resfriado",
+            "id": "1",
+            "symptoms": [
+                {
+                    "numberOne": "Estornudos",
+                    "numberTwo": "Mucosidad",
+                    "numberThree": "Tos",
+                    "numberFour": "Lagrimeo"
+                }
+            ]
+        },
+        {
+            "name": "Dermatitis",
+            "id": "2",
+            "symptoms": [
+                {
+                    "numberOne": "Piel enrojecida",
+                    "numberTwo": "Comezón",
+                    "numberThree": "Sensibilidad de la piel",
+                    "numberFour": "Piel inflamada"
+                }
+            ]
+        },
+        {
+            "name": "Infección urinaria",
+            "id": "3",
+            "symptoms": [
+                {
+                    "numberOne": "Dolor al orinar",
+                    "numberTwo": "Orinar con frecuencia",
+                    "numberThree": "Sangre al orinar",
+                    "numberFour": "Presión en abdomen"
+                }
+            ]
+        },
+        {
+            "name": "Migraña",
+            "id": "4",
+            "symptoms": [
+                {
+                    "numberOne": "Dolor lateral de cabeza",
+                    "numberTwo": "Dolor palpitante en cabeza",
+                    "numberThree": "Sensibilidad a la luz",
+                    "numberFour": "Náuseas"
+                }
+            ]
+        },
+        {
+            "name": "Infección de oido",
+            "id": "5",
+            "symptoms": [
+                {
+                    "numberOne": "Dolor en oído",
+                    "numberTwo": "Fiebre",
+                    "numberThree": "Sensibilidad al sonido"
+                }
+            ]
+        },
+        {
+            "name": "Sinusitis",
+            "id": "6",
+            "symptoms": [
+                {
+                    "numberOne": "Dolor de cabeza",
+                    "numberTwo": "Congestión nasal",
+                    "numberThree": "Dolor en la cara"
+                }
+            ]
+        },
+        {
+            "name": "Anafilaxia",
+            "id": "7",
+            "symptoms": [
+                {
+                    "numberOne": "Comezón",
+                    "numberTwo": "Mareo",
+                    "numberThree": "Dolor abdominal"
+                }
+            ]
+        },
+        {
+            "name": "Conjuntivitis",
+            "id": "8",
+            "symptoms": [
+                {
+                    "numberOne": "Ojos rojos",
+                    "numberTwo": "Secreción en ojos"
+                }
+            ]
+        }
+    ]
+}
