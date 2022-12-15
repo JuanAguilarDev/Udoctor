@@ -21,11 +21,16 @@ import './Sign.css';
 
 // Media
 import signImage from '../../images/sign.svg';
+import { useSign } from '../../hooks/useSign';
+import { Alert } from 'react-bootstrap';
 
 export const Sign = () => {
 
     const [loginRegisterActive, setLoginRegisterActive] = useState('login');
     const [isChecked, setIsChecked] = useState(true);
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const { signUp, user } = useSign();
 
     const loginInitialState = {
         email: '',
@@ -39,16 +44,29 @@ export const Sign = () => {
         passwordRepeat: ''
     }
 
-    const { formState, onInputChange, reset, password, email, username, passwordRepeat  } = useForm(loginRegisterActive === 'login' ? loginInitialState : registerInitialState);
+    const { formState, onInputChange, reset, password, email, username, passwordRepeat } = useForm(loginRegisterActive === 'login' ? loginInitialState : registerInitialState);
 
-    const onIsChecked = ({target: {checked}}) => {
+    const onIsChecked = ({ target: { checked } }) => {
         setIsChecked(checked);
     }
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(formState);
-        console.log(isChecked);
+        if (loginRegisterActive === 'register') {
+            if(password !== passwordRepeat) return setError('Asegurece de la que las contraseñas coincidan. ');
+            if(!isChecked) return setError('Marque la casilla de terminos y condiciones. ');
+        }
+
+        try {
+            setError(null);
+            setIsLoading(true);
+            signUp(formState);
+            console.log(error);
+        } catch (err) {
+            setError('Ha ocurrido un error al crear el usuario. ');
+        }
+
+        setIsLoading(false);
         reset();
     }
 
@@ -85,7 +103,7 @@ export const Sign = () => {
 
                         <MDBTabsContent>
                             <MDBTabsPane show={loginRegisterActive === 'login'}>
-                                <form onSubmit={ onSubmit }>
+                                <form onSubmit={onSubmit}>
                                     <div className='text-center mb-3'>
                                         <p>Sign up with:</p>
 
@@ -108,24 +126,24 @@ export const Sign = () => {
 
                                     <p className='text-center'>or:</p>
 
-                                    <MDBInput 
-                                        className='mb-4' 
-                                        type='email' 
-                                        name='email' 
+                                    <MDBInput
+                                        className='mb-4'
+                                        type='email'
+                                        name='email'
                                         label='Email address'
                                         onChange={onInputChange}
-                                        value={ email }
+                                        value={email}
                                         required />
-                                    
-                                    <MDBInput 
-                                        className='mb-4' 
-                                        type='password' 
-                                        name='password' 
+
+                                    <MDBInput
+                                        className='mb-4'
+                                        type='password'
+                                        name='password'
                                         label='Password'
                                         onChange={onInputChange}
-                                        value={ password }
+                                        value={password}
                                         required />
-                                    
+
 
                                     <MDBRow className='mb-4'>
                                         <MDBCol className='d-flex justify-content-center'>
@@ -142,19 +160,19 @@ export const Sign = () => {
 
                                     <div className='text-center'>
                                         <p>
-                                            Not a member? <a 
+                                            Not a member? <a
                                                 onClick={() => handleLoginRegisterClick('register')}
-                                                active={loginRegisterActive === 'register'} 
+                                                active={loginRegisterActive === 'register'}
                                                 href='#'>Register</a>
                                         </p>
                                     </div>
                                 </form>
                             </MDBTabsPane>
                             <MDBTabsPane show={loginRegisterActive === 'register'}>
-                                <form onSubmit={ onSubmit }>
+                                <form onSubmit={onSubmit}>
                                     <div className='text-center mb-3'>
                                         <p>Sign up with:</p>
-
+                                        {error && <Alert variant='danger'>{error}</Alert>}
                                         <MDBBtn floating color="secondary" className='mx-1'>
                                             <MDBIcon fab icon='facebook-f' />
                                         </MDBBtn>
@@ -174,36 +192,36 @@ export const Sign = () => {
 
                                     <p className='text-center'>or:</p>
 
-                                    <MDBInput 
-                                        className='mb-4' 
-                                        name='username' 
+                                    <MDBInput
+                                        className='mb-4'
+                                        name='username'
                                         label='Username'
                                         onChange={onInputChange}
-                                        value={username} 
-                                        required/>
+                                        value={username}
+                                        required />
 
-                                    <MDBInput 
-                                        className='mb-4' 
-                                        type='email' 
-                                        name='email' 
-                                        label='Email address' 
+                                    <MDBInput
+                                        className='mb-4'
+                                        type='email'
+                                        name='email'
+                                        label='Email address'
                                         onChange={onInputChange}
                                         value={email}
-                                        required/>
+                                        required />
 
-                                    <MDBInput 
-                                        className='mb-4' 
-                                        type='password' 
-                                        name='password' 
+                                    <MDBInput
+                                        className='mb-4'
+                                        type='password'
+                                        name='password'
                                         label='Password'
                                         onChange={onInputChange}
                                         value={password}
                                         required />
 
-                                    <MDBInput 
-                                        className='mb-4' 
-                                        type='password' 
-                                        name='passwordRepeat' 
+                                    <MDBInput
+                                        className='mb-4'
+                                        type='password'
+                                        name='passwordRepeat'
                                         label='Repeat password'
                                         onChange={onInputChange}
                                         value={passwordRepeat}
@@ -217,7 +235,7 @@ export const Sign = () => {
                                         onChange={onIsChecked}
                                     />
 
-                                    <MDBBtn type='submit' className='mb-4' block>
+                                    <MDBBtn disabled={isLoading} type='submit' className='mb-4' block>
                                         Sign in
                                     </MDBBtn>
                                 </form>
