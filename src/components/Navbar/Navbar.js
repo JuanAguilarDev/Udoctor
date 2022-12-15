@@ -9,7 +9,8 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBIcon,
-    MDBCollapse
+    MDBCollapse,
+    MDBBtn
 } from 'mdb-react-ui-kit';
 
 // Styles
@@ -49,6 +50,13 @@ export const Navbar = () => {
                             </MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarNav>
+
+                    {/* BTNLOGOUT */}
+                    <div className="d-flex">
+                        <MDBBtn className='btn btn-danger logout--btn'>
+                            <MDBIcon fas icon="sign-out-alt" /> <span>LogOut</span>
+                        </MDBBtn>
+                    </div>
                 </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>
