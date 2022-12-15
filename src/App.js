@@ -6,17 +6,24 @@ import { Footer } from './components/Footer/Footer';
 import { Navbar } from './components/Navbar/Navbar';
 import { About } from './components/pages/About';
 import { Test } from './components/pages/Test'
+import { Sign } from './components/Sign/Sign';
+
+import { useSign } from './hooks/useSign';
+
 
 function App() {
+  const { user } = useSign();
+  const isLogged = user != null ? true : false;
   return (
     <div className="App">
-      <Navbar />
+      {isLogged ? <Navbar /> : null}
       <Routes>
+        <Route path='/' element={isLogged ? <Banner /> : <Sign />}></Route>
         <Route path='/home' element={<Banner />}></Route>
         <Route path='/test' element={<Test />}></Route>
         <Route path='/about' element={<About />} />
       </Routes>
-      <Footer />
+      {isLogged ? <Footer /> : null}
 
     </div>
   );

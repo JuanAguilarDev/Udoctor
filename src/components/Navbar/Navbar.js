@@ -15,10 +15,11 @@ import {
 
 // Styles
 import './Navbar.css';
+import { useSign } from '../../hooks/useSign';
 
 export const Navbar = () => {
     const [showNav, setShowNav] = useState(false);
-
+    const { logOut } = useSign();
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
@@ -53,7 +54,7 @@ export const Navbar = () => {
 
                     {/* BTNLOGOUT */}
                     <div className="d-flex">
-                        <MDBBtn className='btn btn-danger logout--btn'>
+                        <MDBBtn className='btn btn-danger logout--btn' onClick={logOut}>
                             <MDBIcon fas icon="sign-out-alt" /> <span>LogOut</span>
                         </MDBBtn>
                     </div>
