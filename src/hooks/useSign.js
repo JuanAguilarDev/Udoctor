@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { firebase } from '../helpers/firebase';
 const { auth } = firebase();
 
@@ -25,8 +25,30 @@ export const useSign = () => {
             })
     }
 
+    const signIn = (state) => {
+        signInWithEmailAndPassword(auth, state.email, state.password)
+            .then(userCredential => {
+                console.log('Credenciales correctas');
+            })
+            .catch(error => {
+                throw new Error(error.message);
+            })
+    }
+
+    const logOut = () => {
+        return auth.signOut()
+            .then(_ => {
+                console.log('Sesion finalizada. ');
+            })
+            .catch(error => {
+                throw new Error('No se ha podido finalizar la sesion. ');
+            });
+    }
+
     return {
         signUp,
+        signIn,
+        logOut,
         user
     }
 }

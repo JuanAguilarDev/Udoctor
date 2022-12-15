@@ -30,7 +30,7 @@ export const Sign = () => {
     const [isChecked, setIsChecked] = useState(true);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const { signUp, user } = useSign();
+    const { signUp, user, signIn } = useSign();
 
     const loginInitialState = {
         email: '',
@@ -38,13 +38,12 @@ export const Sign = () => {
     }
 
     const registerInitialState = {
-        username: '',
         email: '',
         password: '',
         passwordRepeat: ''
     }
 
-    const { formState, onInputChange, reset, password, email, username, passwordRepeat } = useForm(loginRegisterActive === 'login' ? loginInitialState : registerInitialState);
+    const { formState, onInputChange, reset, password, email, passwordRepeat } = useForm(loginRegisterActive === 'login' ? loginInitialState : registerInitialState);
 
     const onIsChecked = ({ target: { checked } }) => {
         setIsChecked(checked);
@@ -55,16 +54,26 @@ export const Sign = () => {
         if (loginRegisterActive === 'register') {
             if(password !== passwordRepeat) return setError('Asegurece de la que las contraseñas coincidan. ');
             if(!isChecked) return setError('Marque la casilla de terminos y condiciones. ');
+        
+            try {
+                setError(null);
+                setIsLoading(true);
+                signUp(formState);
+                
+            } catch (err) {
+                setError('Ha ocurrido un error al crear el usuario. ');
+            }
+        }else if(loginRegisterActive === 'login'){
+            try {
+                setError(null);
+                setIsLoading(true);
+                signIn(formState);
+            }catch(err){
+                setError('Ha ocurrido un error con las credenciales. ');
+            }
         }
 
-        try {
-            setError(null);
-            setIsLoading(true);
-            signUp(formState);
-            console.log(error);
-        } catch (err) {
-            setError('Ha ocurrido un error al crear el usuario. ');
-        }
+        
 
         setIsLoading(false);
         reset();
@@ -191,14 +200,6 @@ export const Sign = () => {
                                     </div>
 
                                     <p className='text-center'>or:</p>
-
-                                    <MDBInput
-                                        className='mb-4'
-                                        name='username'
-                                        label='Username'
-                                        onChange={onInputChange}
-                                        value={username}
-                                        required />
 
                                     <MDBInput
                                         className='mb-4'
