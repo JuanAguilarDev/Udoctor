@@ -12,7 +12,12 @@ const getIllness = (req, res) => {
     const info = [];
 
     data.illnesses.map(illness => {
-        info.push(illness.name);
+        info.push(
+            {
+                name: illness.name,
+                id: illness.id
+            }
+        );
     });
 
     res.status(200).json({"msg": info});
