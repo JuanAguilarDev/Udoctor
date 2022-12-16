@@ -2,6 +2,7 @@
     "illnesses": [
         {
             "name": "Resfriado",
+            "id": 123,
             "symptoms": [
                 {
                     "name": "Estornudos",
@@ -23,6 +24,7 @@
         },
         {
             "name": "Dermatitis",
+            "id": 124,
             "symptoms": [
                 {
                     "name": "Piel enrojecida",
@@ -44,6 +46,7 @@
         },
         {
             "name": "Infección urinaria",
+            "id": 125,
             "symptoms": [
                 {
                     "name": "Dolor al orinar",
@@ -65,6 +68,7 @@
         },
         {
             "name": "Migraña",
+            "id": 126,
             "symptoms": [
                 {
                     "name": "Dolor lateral de cabeza",
@@ -86,6 +90,7 @@
         },
         {
             "name": "Infección de oido",
+            "id": 127,
             "symptoms": [
                 {
                     "name": "Dolor en oído",
@@ -103,6 +108,7 @@
         },
         {
             "name": "Sinusitis",
+            "id": 128,
             "symptoms": [
                 {
                     "name": "Dolor de cabeza",
@@ -120,6 +126,7 @@
         },
         {
             "name": "Anafilaxia",
+            "id": 129,
             "symptoms": [
                 {
                     "name": "Comezón",
@@ -137,6 +144,7 @@
         },
         {
             "name": "Conjuntivitis",
+            "id": 124,
             "symptoms": [
                 {
                     "name": "Ojos rojos",
