@@ -6,3 +6,11 @@
     align-items: center;
     flex-direction: column;
 }
+
+.check{
+    height: 200px;
+}
+
+.cont{
+    height: 200px;
+}
