@@ -8,7 +8,7 @@ require("dotenv").config();
 const routes = require('./routes/index');
 
 const port = process.env.PORT;
-pp.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 // routes
