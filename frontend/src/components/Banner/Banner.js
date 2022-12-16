@@ -11,11 +11,9 @@ export const Banner = () => {
             <div className='container'>
                 <div className='row banner--container'>
                     <div className='col-xs-10 col-md-6 banner--text'>
+                        <h1>Bienvenido a UDoctor</h1>
                         <p className='banner__text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam gravida blandit sapien
-                            et porta. Nam sollicitudin turpis facilisis accumsan faucibus. Maecenas non hendrerit magna,
-                            eu consequat magna. Pellentesque dignissim malesuada nisi, ac congue lectus mollis sed.
-                            Nullam a sem ante. Quisque sit amet dui ac leo viverra tincidunt in eu lacus.
+                            ¿Cómo te sientes el día de hoy?
                         </p>
                     </div>
                     <div className='col-xs-12 col-md-4 banner--img'>
@@ -32,8 +30,7 @@ export const Banner = () => {
                     </div>
                     <div className='col-xs-10 col-md-6 banner--text'>
                         <p className='banner__text my-3'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam gravida blandit sapien
-                            et porta.
+                            Inicia un test para conocer tu pre-diagnóstico!
                         </p>
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <Link type="button" class="btn btn-primary" to={'/test'}>Iniciar test</Link>

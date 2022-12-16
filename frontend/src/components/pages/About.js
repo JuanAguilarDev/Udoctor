@@ -6,14 +6,15 @@ export const About = () => {
             <div className='container'>
                 <div className='row banner--container'>
                     <h2 className='col-xs-12 col-md-5'>
-                        Qué es UrDoctor
+                        ¿Qué es UrDoctor?
                     </h2>
+                    <img />
                     <div className='col-xs-12 col-md-5 banner--text'>
                         <p className='banner__text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam gravida blandit sapien
-                            et porta. Nam sollicitudin turpis facilisis accumsan faucibus. Maecenas non hendrerit magna,
-                            eu consequat magna. Pellentesque dignissim malesuada nisi, ac congue lectus mollis sed.
-                            Nullam a sem ante. Quisque sit amet dui ac leo viverra tincidunt in eu lacus.
+                            UDoctor ofrece ayuda a las personas ofreciendo un pre-diagnóstico
+                            médico, los usuarios podrán reconocer sus síntomas, determinar 
+                            el origen del problema que presenta y conocer el especialista al 
+                            que pueden asistir
                         </p>
                     </div>
                 </div>
